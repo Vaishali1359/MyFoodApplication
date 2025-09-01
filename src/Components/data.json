@@ -1,0 +1,31 @@
+[
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSquo4TCm8aj1ZXxeJyGpOJQikaBkkYe3U4PQ&s",
+    
+    "head": "Brek-Fast",
+    "para": "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
+    "menu": " Explore Menue"
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQglxOmJnNbScJqcl8AYksciI2JU_a76fb_Tg&s",
+    
+    "head": "Bowl rice",
+    "para": "Delicious grilled chicken with spices. Lorem ipsum dolor sit amet consectetur",
+    "menu": " Explore Menue"
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHswE8YpKe0kaEJQa6eeD3po37dt05JSQr_w&s",
+    
+    "head": "Cold Drink",
+    "para": "Tasty and healthy vegetarian burger.Lorem ipsum dolor sit amet consectetur",
+    "menu": " Explore Menue"
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBtXauGT6vLhW2BuTmUvoqsKRiC_gyB4BWiw&s",
+    
+    "head": "Dessert",
+    "para": "Crispy and golden potato fries. Lorem ipsum dolor sit amet consectetur",
+    "menu": " Explore Menue"
+  }
+  
+]

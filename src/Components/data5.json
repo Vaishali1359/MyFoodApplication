@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "image" :"https://i.pinimg.com/1200x/33/23/c4/3323c4dc60d03f54f2490d8fa9bb3d62.jpg",
+        "head" : "How to prepare a delicious gluten free sushi",
+        "para" : "January 3, 2023 "
+    },
+    {
+        "id": "2",
+        "image" :"https://i.pinimg.com/736x/42/72/98/4272980dac01e39d2f3ac9a5378804a1.jpg",
+        "head" : "Exclusive baking lessons from the pastry king",
+        "para" : "January 3, 2023  "
+    },
+    {
+        "id": "3",
+        "image" :"https://i.pinimg.com/1200x/0b/a8/eb/0ba8eb368ba2fcb2ef6123d01ba25dce.jpg",
+        "head" : "How to prepare the perfect fries in an air fryer",
+        "para" : "January 3, 2023    "
+    },
+    {
+        "id": "4",
+        "image" :"https://i.pinimg.com/1200x/ee/13/67/ee13672c4b088a00a2f861bc8859c470.jpg",
+        "head" : "How to prepare delicious chicken tenders",
+        "para" : "January 3, 2023"
+    }
+]
