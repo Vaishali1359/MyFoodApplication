@@ -22,16 +22,36 @@ function Header() {
 
           {/* Social Icons - hidden on small devices */}
           <div className="hidden sm:flex gap-3">
-            <a href="#" className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors"
+            >
               <FaFacebookF size={14} />
             </a>
-            <a href="#" className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors"
+            >
               <FaTwitter size={14} />
             </a>
-            <a href="#" className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors"
+            >
               <FaInstagram size={14} />
             </a>
-            <a href="#" className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#86868095] text-white hover:text-black transition-colors"
+            >
               <FaLinkedinIn size={14} />
             </a>
           </div>

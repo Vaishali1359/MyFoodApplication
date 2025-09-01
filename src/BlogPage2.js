@@ -1,6 +1,6 @@
 import React from 'react'
 import Page2 from './Components/Pages/Page2'
-import Navbar from './Navbar'
+
 
 const BlogPage2 = () => {
   return (

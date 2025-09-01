@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import data5 from "../data5.json";
 
 const Card5 = () => {
-  
-const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
 
   const openModal = (item) => {
@@ -17,9 +16,9 @@ const [isOpen, setIsOpen] = useState(false);
   };
 
   return (
-    <div className="w-full h-auto  px-4 bg-white">
-      <h1 className="font-extrabold text-black text-center max-w-[1340px] text-3xl tracking-wider sm:text-4xl my_font mb-4  mx-auto leading-4">
-        Read More Article 
+    <div className="w-full h-auto px-4 bg-white">
+      <h1 className="font-extrabold text-black text-center max-w-[1340px] text-3xl tracking-wider sm:text-4xl my_font mb-4 mx-auto leading-4">
+        Read More Article
       </h1>
 
       <p className="my_font text-center max-w-[1240px] mx-auto mb-12 text-gray-600">
@@ -30,22 +29,22 @@ const [isOpen, setIsOpen] = useState(false);
         {data5.map((item) => (
           <div
             key={item.id}
-            className="block  rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            className="block rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-         
-            <div className="h-[70%] w-full cursor-pointer" onClick={() => openModal(item)}>
+            <div
+              className="h-[70%] w-full cursor-pointer"
+              onClick={() => openModal(item)}
+            >
               <img
-                
                 src={item.image}
-                className="w-full h-full object-cover "
-             
+                alt={item.head || "Article image"} // ✅ added alt
+                className="w-full h-full object-cover"
               />
             </div>
 
             <div className="h-[30%] p-3 flex flex-col justify-center">
-                <p className="text-xs font-serif text-left text-gray-700"> {(item.para)}.</p>
-              <h2 className="text-md font-bold text-left mb-1">  {item.head}</h2>
-              
+              <p className="text-xs font-serif text-left text-gray-700">{item.para}.</p>
+              <h2 className="text-md font-bold text-left mb-1">{item.head}</h2>
             </div>
           </div>
         ))}
@@ -58,7 +57,7 @@ const [isOpen, setIsOpen] = useState(false);
           onClick={closeModal}
         >
           <div
-            className="relative max-w-3xl max-h-full w-full rounded-lg "
+            className="relative max-w-3xl max-h-full w-full rounded-lg"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -70,14 +69,11 @@ const [isOpen, setIsOpen] = useState(false);
             <img
               className="w-full h-auto max-h-[70vh] object-contain"
               src={currentImage}
-              
+              alt="Expanded article image" // ✅ added alt
             />
-             
           </div>
         </div>
       )}
-
-      
     </div>
   );
 };

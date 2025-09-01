@@ -26,7 +26,7 @@ const Profile = () => {
     }
   }, []);
 
-  
+  // Update booking statuses whenever user or bookings change
   useEffect(() => {
     if (!user || bookings.length === 0) return;
 
@@ -41,7 +41,7 @@ const Profile = () => {
 
     setBookings(updated);
     localStorage.setItem('bookings_' + user.username, JSON.stringify(updated));
-  }, [user, bookings.length]);
+  }, [user, bookings]); // <-- yahan fix kiya hai
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -87,13 +87,11 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 p-4">
-      
-      <aside className="w-full lg:w-64  p-4 rounded shadow">
+      <aside className="w-full lg:w-64 p-4 rounded shadow">
         <h2 className="text-lg font-bold mb-2">User Panel 😍</h2>
         <p className="mb-4">Welcome, {user.username}</p>
       </aside>
 
-    
       <main className="flex-1 p-4 bg-gray-50 rounded-md shadow-md">
         <div className="flex justify-between items-center mb-4">
           <button
@@ -143,7 +141,6 @@ const Profile = () => {
           </div>
         </div>
 
-       
         {showForm && (
           <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow space-y-4 mb-6">
             <h2 className="text-xl font-bold text-gray-800">Book a Table</h2>
@@ -189,7 +186,6 @@ const Profile = () => {
           </form>
         )}
 
-   
         <h3 className="text-2xl font-semibold text-gray-700 mb-4">Your Bookings</h3>
         {bookings.length === 0 ? (
           <p className="italic text-gray-500">No bookings made yet.</p>
@@ -246,4 +242,3 @@ const Profile = () => {
 };
 
 export default Profile;
-

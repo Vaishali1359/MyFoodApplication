@@ -1,9 +1,6 @@
 import React from 'react';
-import K from "../assets/food6.jpg";
-import L from "../assets/vi.jpg";
+
 import { GrNotes } from "react-icons/gr";
-import { TbWashMachine } from "react-icons/tb";
-import { CiStopwatch } from "react-icons/ci";
 
 const Video = () => {
   return (

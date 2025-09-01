@@ -1,5 +1,3 @@
-
-
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FoodContext from '../Localdata/FoodContext';
@@ -10,8 +8,8 @@ const Admin1 = () => {
   const navigate = useNavigate();
 
   const [selectedTab, setSelectedTab] = useState('dashboard');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [bookings, setBookings] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');      // uncommented and defined
+  const [bookings, setBookings] = useState([]);          // uncommented and defined
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -32,11 +30,6 @@ const Admin1 = () => {
     setRegisteredUsers(users);
   }, [navigate]);
 
-  function handleDeleteBooking(id) {
-    deleteBooking(id);
-    setBookings(getBookings());
-  }
-
   function handleConfirmBooking(username, index) {
     const userBookings = JSON.parse(localStorage.getItem('bookings_' + username)) || [];
     if (!userBookings[index]) return;
@@ -44,7 +37,6 @@ const Admin1 = () => {
     userBookings[index].confirmed = true;
     localStorage.setItem('bookings_' + username, JSON.stringify(userBookings));
 
-    
     setBookings(getBookings());
     alert('Booking confirmed for ' + username);
   }
@@ -104,6 +96,17 @@ const Admin1 = () => {
                 + Add New Food
               </button>
             </div>
+
+            {/* Search input for filtering */}
+            <input
+              type="text"
+              placeholder="Search food..."
+              className="border p-2 mb-4 w-full mx-4 rounded"
+              value={searchTerm}
+              onChange={function (e) {
+                setSearchTerm(e.target.value);
+              }}
+            />
 
             {showAddForm && (
               <div className="bg-white p-4 rounded-lg shadow-md mb-6 mx-4">
@@ -204,7 +207,6 @@ const Admin1 = () => {
         );
 
       case 'orders':
-      
         const allUserBookings = registeredUsers
           .flatMap(function (user) {
             const bookingsData = JSON.parse(localStorage.getItem('bookings_' + user.username)) || [];
@@ -345,9 +347,9 @@ const Admin1 = () => {
             onClick={function () {
               setSelectedTab('dashboard');
             }}
-              className={
+            className={
               'block text-left w-[15rem] p-4 h-full hover:bg-slate-600' +
-              (selectedTab === 'dashboard' ? 'text-green-600 font-bold' : 'text-white') +
+              (selectedTab === 'dashboard' ? ' text-green-600 font-bold' : ' text-white') +
               ' hover:bg-slate-300'
             }
           >
@@ -357,9 +359,9 @@ const Admin1 = () => {
             onClick={function () {
               setSelectedTab('orders');
             }}
-              className={
+            className={
               'block text-left w-[15rem] p-4 h-full hover:bg-slate-600' +
-              (selectedTab === 'orders' ? 'text-green-600 font-bold' : 'text-white') +
+              (selectedTab === 'orders' ? ' text-green-600 font-bold' : ' text-white') +
               ' hover:bg-slate-300'
             }
           >
@@ -371,48 +373,46 @@ const Admin1 = () => {
             }}
             className={
               'block text-left w-[15rem] p-4 h-full hover:bg-slate-600' +
-              (selectedTab === 'view' ? 'text-green-600 font-bold' : 'text-white') +
+              (selectedTab === 'view' ? ' text-green-600 font-bold' : ' text-white') +
               ' hover:bg-slate-300'
             }
           >
-            🗃 See Our Blogs
+            👀 View
           </button>
           <button
             onClick={function () {
               setSelectedTab('profiles');
             }}
             className={
-                'block text-left w-[15rem] p-4  h-auto hover:bg-slate-600' +
-              (selectedTab === 'profiles' ? 'text-green-600 font-bold' : 'text-white') +
+              'block text-left w-[15rem] p-4 h-full hover:bg-slate-600' +
+              (selectedTab === 'profiles' ? ' text-green-600 font-bold' : ' text-white') +
               ' hover:bg-slate-300'
             }
           >
-            👥 User Profiles
+            👤 Profiles
           </button>
           <button
             onClick={function () {
               setSelectedTab('settings');
             }}
             className={
-             'block text-left w-[15rem] p-4  h-auto hover:bg-slate-600' +
-              (selectedTab === 'setting' ? 'text-green-600 font-bold' : 'text-white') +
+              'block text-left w-[15rem] p-4 h-full hover:bg-slate-600' +
+              (selectedTab === 'settings' ? ' text-green-600 font-bold' : ' text-white') +
               ' hover:bg-slate-300'
             }
           >
-            ⚙ Settings
-          </button>
-          <button
-            onClick={handleLogout}
-            className="block text-left w-[15rem] p-4  h-auto hover:bg-slate-300 font-semibold"
-          >
-            🚪 Logout
+            ⚙️ Settings
           </button>
         </nav>
+        <button
+          onClick={handleLogout}
+          className="bg-red-600 text-white px-6 py-3 mt-6 rounded hover:bg-red-500"
+        >
+          Logout
+        </button>
       </aside>
-      <main className="flex-1 p-10 overflow-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Welcome Dashboard</h1>
-        {renderContent()}
-      </main>
+
+      <main className="flex-grow p-6 overflow-y-auto">{renderContent()}</main>
     </div>
   );
 };
