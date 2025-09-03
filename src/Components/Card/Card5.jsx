@@ -3,16 +3,16 @@ import data5 from "../data5.json";
 
 const Card5 = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(null);
+  const [currentItem, setCurrentItem] = useState(null);
 
   const openModal = (item) => {
-    setCurrentImage(item.image);
+    setCurrentItem(item);
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
-    setCurrentImage(null);
+    setCurrentItem(null);
   };
 
   return (
@@ -37,7 +37,7 @@ const Card5 = () => {
             >
               <img
                 src={item.image}
-                alt={item.head || "Article image"} // ✅ added alt
+                alt={item.head || "Article thumbnail"} // ✅ Fixed alt text
                 className="w-full h-full object-cover"
               />
             </div>
@@ -50,7 +50,7 @@ const Card5 = () => {
         ))}
       </div>
 
-      {isOpen && currentImage && (
+      {isOpen && currentItem && (
         <div
           id="imageModal"
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
@@ -68,8 +68,8 @@ const Card5 = () => {
             </button>
             <img
               className="w-full h-auto max-h-[70vh] object-contain"
-              src={currentImage}
-              alt="Expanded article image" // ✅ added alt
+              src={currentItem.image}
+              alt={currentItem.head || "Expanded view"} // ✅ Meaningful alt text without redundancy
             />
           </div>
         </div>
